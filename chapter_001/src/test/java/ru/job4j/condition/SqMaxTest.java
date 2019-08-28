@@ -39,4 +39,11 @@ public class SqMaxTest {
         int result = sqMax.max(2, 2, 2, 2);
         assertThat(result, is(2));
     }
+
+    @Test
+    public void whenMaxTest() {
+        SqMax sqMax = new SqMax();
+        int result = sqMax.max(5, 2, 8, 4);
+        assertThat(result, is(8));
+    }
 }
