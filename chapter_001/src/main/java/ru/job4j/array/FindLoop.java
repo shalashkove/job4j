@@ -28,14 +28,13 @@ public class FindLoop {
     public int[] sort(int[] data) {
         int minIndex, minElem, tmp;
         for (int j = 0; j < data.length; j++) {
-            minIndex = j;
             minElem = data[j];
             for (int i = j; i < data.length; i++) {
                 if (data[i] < minElem) {
-                    minIndex = i;
                     minElem = data[i];
                 }
             }
+            minIndex = indexOf(data, minElem, j, data.length);
             tmp = data[j];
             data[j] = minElem;
             data[minIndex] = tmp;
