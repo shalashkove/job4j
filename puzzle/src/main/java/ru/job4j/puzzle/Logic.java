@@ -71,32 +71,50 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        int countH = 0;
+        int countV = 0;
         for (int i = 0; i < table.length; i++) {
-            result = true;
-            for (int j = 0; j < table[i].length; j++) {
-                if (table[i][j] != 1) {
-                    result = false;
-                    break;
-                }
-            }
-            if (result == true) {
-                break;
-            }
-        }
-        if (result == false) {
-            for (int i = 0; i < table.length; i++) {
-                result = true;
-                for (int j = 0; j < table[i].length; j++) {
-                    if (table[j][i] != 1) {
-                        result = false;
-                        break;
+            if (table[i][i] == 1) {
+                for (int j = 0; j < table.length; j++) {
+                    if (table[i][j] == 1) {
+                        countH++;
+                    }
+                    if (table[j][i] == 1) {
+                        countV++;
                     }
                 }
-                if (result == true) {
+                if (countH == table.length || countV == table.length) {
+                    result = true;
                     break;
                 }
             }
         }
+//        for (int i = 0; i < table.length; i++) {
+//            result = true;
+//            for (int j = 0; j < table[i].length; j++) {
+//                if (table[i][j] != 1) {
+//                    result = false;
+//                    break;
+//                }
+//            }
+//            if (result == true) {
+//                break;
+//            }
+//        }
+//        if (result == false) {
+//            for (int i = 0; i < table.length; i++) {
+//                result = true;
+//                for (int j = 0; j < table[i].length; j++) {
+//                    if (table[j][i] != 1) {
+//                        result = false;
+//                        break;
+//                    }
+//                }
+//                if (result == true) {
+//                    break;
+//                }
+//            }
+//        }
 
         return result;
     }
