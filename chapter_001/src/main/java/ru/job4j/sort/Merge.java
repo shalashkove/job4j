@@ -5,37 +5,28 @@ import java.util.Arrays;
 public class Merge {
 
     public int[] merge(int[] left, int[] right) {
-        int[] rsl = new int[left.length + right.length];
-        int leftIndex = 0;
-        int rightIndex = 0;
-        while ((leftIndex + rightIndex) < rsl.length) {
-            if (leftIndex == (left.length)) {
-                rsl[leftIndex + rightIndex] = right[rightIndex];
-                rightIndex++;
+        int[] result = new int[left.length + right.length];
+        int first = 0;
+        int second = 0;
+        while ((first + second) < result.length) {
+            if (first == (left.length)) {
+                result[first + second] = right[second];
+                second++;
                 continue;
             }
-            if (rightIndex == (right.length)) {
-                rsl[leftIndex + rightIndex] = left[leftIndex];
-                leftIndex++;
+            if (second == (right.length)) {
+                result[first + second] = left[first];
+                first++;
                 continue;
             }
-            if (left[leftIndex] < right[rightIndex]) {
-                rsl[leftIndex + rightIndex] = left[leftIndex];
-                leftIndex++;
+            if (left[first] < right[second]) {
+                result[first + second] = left[first];
+                first++;
             } else {
-                rsl[leftIndex + rightIndex] = right[rightIndex];
-                rightIndex++;
+                result[first + second] = right[second];
+                second++;
             }
         }
-        return rsl;
+        return result;
     }
-
-//    public static void main(String[] args) {
-//        Merge process = new Merge();
-//        int[] rsl = process.merge(
-//                new int[] {1, 3, 5},
-//                new int[] {2, 4}
-//        );
-//        System.out.println(Arrays.toString(rsl));
-//    }
 }
