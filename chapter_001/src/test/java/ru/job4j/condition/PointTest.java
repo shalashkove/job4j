@@ -30,4 +30,33 @@ public class PointTest {
         Point second = new Point(2, 2);
         second.info();
     }
+
+    @Test
+    public void when3DTenThen10() {
+        Point first = new Point(0, 0, 0);
+        Point second = new Point(0, 0, 10);
+        double result = first.distance3d(second);
+        System.out.println(String.format("Result is %s", result));
+        assertThat(result, is(10D));
+    }
+
+    @Test
+    public void when3Then4() {
+        Point first = new Point(2, 2, 2);
+        Point second = new Point(2, 5, 6);
+        double result = first.distance3d(second);
+        System.out.println(String.format("Result is %s", result));
+        assertThat(result, is(5D));
+    }
+
+    @Test
+    public void whenCheckItSelf3D() {
+        Point first = new Point(0, 0, 0);
+        Point second = new Point(0, 0, 0);
+        double result = first.distance3d(second);
+        first.info();
+        second.info();
+        System.out.println(String.format("Result is %s", result));
+        assertThat(result, is(0D));
+    }
 }
