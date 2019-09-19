@@ -84,7 +84,7 @@ public class TrackerTest {
         tracker.add(test3);
         tracker.add(test4);
         tracker.add(test5);
-        Item[] result = tracker.findByName("test2");    //new Item[5];
+        Item[] result = tracker.findByName("test2");
         assertThat(result.length, is(3));
     }
 
@@ -101,7 +101,16 @@ public class TrackerTest {
         tracker.add(test3);
         tracker.add(test4);
         tracker.add(test5);
-        Item result = tracker.findById(test4.getId());
-        assertThat(result, is(test4));
+        Item result = tracker.findById(test5.getId());
+        assertThat(result, is(test5));
+    }
+
+    @Test
+    public void whenFindByIdInEmptyItems() {
+        Tracker tracker = new Tracker();
+        Item test1 = new Item("test1");
+        Item expect = null;
+        Item result = tracker.findById(test1.getId());
+        assertThat(result, is(expect));
     }
 }

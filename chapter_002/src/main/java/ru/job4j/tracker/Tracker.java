@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -52,6 +53,7 @@ public class Tracker {
         boolean result = false;
         for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
+                item.setId(id);
                 items[i] = item;
                 result = true;
                 break;
@@ -84,17 +86,7 @@ public class Tracker {
      * @return Метод должен вернуть копию массива items без null элементов
      */
     public Item[] findAll() {
-        Item[] tmp = new Item[position];
-        int count = 0;
-        for (int i = 0; i != position; i++) {
-            if (items[i] != null) {
-                tmp[i] = items[i];
-                count++;
-            }
-        }
-        Item[] result = new Item[count];
-        System.arraycopy(tmp, 0, result, 0, count);
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
 
     /**
@@ -105,15 +97,13 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] tmp = new Item[position - 1];
         int count = 0;
-        for (int i = 0; i != position - 1; i++) {
+        for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getName().equals(key)) {
                 tmp[count] = items[i];
                 count++;
             }
         }
-        Item[] result = new Item[count];
-        System.arraycopy(tmp, 0, result, 0, count);
-        return result;
+        return Arrays.copyOf(tmp, count);
     }
 
     /**
@@ -123,9 +113,9 @@ public class Tracker {
      */
     public Item findById(String id) {
         Item result = null;
-        for (Item elem : items) {
-            if (elem != null && elem.getId().equals(id)) {
-                result = elem;
+        for (int i = 0; i < position; i++) {
+            if (items[i] != null && items[i].getId().equals(id)) {
+                result = items[i];
                 break;
             }
         }
