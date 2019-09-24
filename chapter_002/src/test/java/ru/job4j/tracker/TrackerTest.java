@@ -48,7 +48,7 @@ public class TrackerTest {
         tracker.add(test5);
         System.out.println(Arrays.toString(tracker.getItems()));
         int befor = tracker.findAll().length;
-        boolean result = tracker.delete(test3.getId());
+        boolean result = tracker.delete(test5.getId());
         int after = tracker.findAll().length;
         System.out.println(Arrays.toString(tracker.getItems()));
         assertThat(result, is(true && (befor - after == 1)));

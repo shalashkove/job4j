@@ -69,7 +69,7 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (int i = 0; i != position - 1; i++) {
+        for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, position - 1 - i);
                 items[position - 1] = null;
