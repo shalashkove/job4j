@@ -10,7 +10,7 @@ public class StartUI {
         tracker.add(item);
     }
 
-    public static void showItems(Input input, Tracker tracker) {
+    public static void findAllItems(Input input, Tracker tracker) {
         System.out.println("=== Show all Items ====");
         Item[] items = tracker.findAll();
         for (int i = 0; i != items.length; i++) {
@@ -105,7 +105,7 @@ public class StartUI {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(),
-                new ShowAction(),
+                new FindAllAction(),
                 new ReplaceAction(),
                 new DeleteAction(),
                 new FindByIdAction(),

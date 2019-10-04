@@ -95,7 +95,7 @@ public class Tracker {
      * @return Возвращает массив совпавших по параметру key элементов массива items
      */
     public Item[] findByName(String key) {
-        Item[] tmp = new Item[position - 1];
+        Item[] tmp = new Item[position];
         int count = 0;
         for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getName().equals(key)) {
