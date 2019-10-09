@@ -23,6 +23,19 @@ public class Tracker {
     private int position = 0;
 
     /**
+     * Указатель на необходимость штатного завершения программы.
+     */
+    private boolean exited = true;
+
+    public boolean isExited() {
+        return exited;
+    }
+
+    public void setExited(boolean exited) {
+        this.exited = exited;
+    }
+
+    /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */

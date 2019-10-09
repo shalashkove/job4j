@@ -22,7 +22,7 @@ public class FindByNameActionTest {
         Item item2 = new Item("fix bug");
         tracker.add(item1);
         tracker.add(item2);
-        FindByNameAction act = new FindByNameAction();
+        FindByNameAction act = new FindByNameAction(5, "=== Find Item for name ===");
         act.execute(new StubInput(new String[] {"fix bug"}), tracker);
 
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())

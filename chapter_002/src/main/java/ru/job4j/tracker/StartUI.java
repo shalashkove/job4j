@@ -89,14 +89,19 @@ public class StartUI {
             this.showMenu(actions);
             int select = input.askInt("Select: ", actions.length);
             UserAction action = actions[select];
-            run = action.execute(input, tracker);
+//            run = action.execute(input, tracker);
+            action.execute(input, tracker);
+            run = tracker.isExited();
         }
     }
 
     private void showMenu(UserAction[] actions) {
         System.out.println("Menu.");
-        for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+//        for (int index = 0; index < actions.length; index++) {
+//            System.out.println(index + ". " + actions[index].name());
+//        }
+        for (UserAction action : actions) {
+            System.out.println(action.info());
         }
     }
 
@@ -105,13 +110,20 @@ public class StartUI {
         Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
-                new FindAllAction(),
-                new ReplaceAction(),
-                new DeleteAction(),
-                new FindByIdAction(),
-                new FindByNameAction(),
-                new ExitAction()
+                new AddAction(0, "=== Create a new Item ==="),
+                new FindAllAction(1, "=== Find all Items ==="),
+                new ReplaceAction(2, "=== Replace Item ==="),
+                new DeleteAction(3, "=== Delete Item with id ==="),
+                new FindByIdAction(4, "=== Find Item for id ==="),
+                new FindByNameAction(5, "=== Find Item for name ==="),
+                new ExitAction(6, "=== Exit ===")
+//                new CreateAction(),
+//                new FindAllAction(),
+//                new ReplaceAction(),
+//                new DeleteAction(),
+//                new FindByIdAction(),
+//                new FindByNameAction(),
+//                new ExitAction()
         };
         new StartUI().init(validate, tracker, actions);
     }

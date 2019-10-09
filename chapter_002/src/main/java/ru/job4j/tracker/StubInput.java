@@ -25,6 +25,5 @@ public class StubInput implements Input {
             throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
         }
         return select;
-        //return askInt(question);
     }
 }
