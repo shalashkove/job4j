@@ -7,14 +7,9 @@ public class ConvertList2Array {
         int cells = (int) Math.ceil((double) list.size() / rows);
         int[][] array = new int[rows][cells];
         int index = 0;
-        for (int i = 0; i != rows; i++) {
-            for (int j = 0; j != cells; j++) {
-                if (index < list.size()) {
-                    array[i][j] = list.get(index++);
-                } // else {
-//                    array[i][j] = 0;
-//                }
-            }
+        for (Integer var : list) {
+            array[index / rows][index % rows] = var;
+            index++;
         }
         return array;
     }
