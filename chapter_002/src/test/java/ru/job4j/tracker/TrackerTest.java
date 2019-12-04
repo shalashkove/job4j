@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -46,11 +47,11 @@ public class TrackerTest {
         tracker.add(test3);
         tracker.add(test4);
         tracker.add(test5);
-        System.out.println(Arrays.toString(tracker.getItems()));
-        int befor = tracker.findAll().length;
+        //System.out.println(Arrays.toString(tracker.getItems()));
+        int befor = tracker.findAll().size();
         boolean result = tracker.delete(test5.getId());
-        int after = tracker.findAll().length;
-        System.out.println(Arrays.toString(tracker.getItems()));
+        int after = tracker.findAll().size();
+        //System.out.println(Arrays.toString(tracker.getItems()));
         assertThat(result, is(result && (befor - after == 1)));
     }
 
@@ -67,8 +68,8 @@ public class TrackerTest {
         tracker.add(test3);
         tracker.add(test4);
         tracker.add(test5);
-        Item[] result = tracker.findAll();
-        assertThat(result.length, is(5));
+        List<Item> result = tracker.findAll();
+        assertThat(result.size(), is(5));
     }
 
     @Test
@@ -84,8 +85,8 @@ public class TrackerTest {
         tracker.add(test3);
         tracker.add(test4);
         tracker.add(test5);
-        Item[] result = tracker.findByName("test2");
-        assertThat(result.length, is(3));
+        List<Item> result = tracker.findByName("test2");
+        assertThat(result.size(), is(3));
     }
 
     @Test
