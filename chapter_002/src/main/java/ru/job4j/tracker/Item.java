@@ -24,6 +24,12 @@ public class Item {
         this.desc = desc;
     }
 
+    public Item(String id, String name, String desc) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+    }
+
     public String getId() {
         return id;
     }
@@ -38,5 +44,10 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s : %s", id, name, desc);
     }
 }
