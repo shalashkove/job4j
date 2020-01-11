@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/shalashkove/job4j.svg?branch=master)](https://travis-ci.org/shalashkove/job4j)
+[![codecov](https://codecov.io/gh/shalashkove/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/shalashkove/job4j)
+
 # job4j
 for java study
 ... adding data
@@ -8,4 +11,4 @@ for java study
 
 Создание ветки из IDEA
 
-В курсе производилась работа с веткамы git.
+В курсе производилась работа с ветками git.
