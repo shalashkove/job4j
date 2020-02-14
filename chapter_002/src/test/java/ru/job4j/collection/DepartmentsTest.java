@@ -41,7 +41,7 @@ public class DepartmentsTest {
         List<String> expect = Arrays.asList("K2", "K2/SK1", "K2/SK1/SSK2",
                 "K2/SK1/SSK1", "K1", "K1/SK2", "K1/SK1", "K1/SK1/SSK2", "K1/SK1/SSK1");
         List<String> result = Departments.fillGaps(input);
-        Collections.sort(result, new DepDescComp().reversed());
+        Collections.sort(result, new DepDescComp());
         assertThat(result, is(expect));
     }
 }

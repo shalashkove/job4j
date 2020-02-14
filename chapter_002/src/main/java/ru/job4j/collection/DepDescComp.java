@@ -10,14 +10,14 @@ public class DepDescComp implements Comparator<String> {
         char[] o2Array = o2.toCharArray();
         int index = 0;
         while (index < o1Array.length && index < o2Array.length) {
-            result = o1Array[index] - o2Array[index];
+            result = o2Array[index] - o1Array[index];
             if (result != 0) {
                 break;
             }
             index++;
         }
         if (result == 0 & o1Array.length != o2Array.length) {
-            result = o2Array.length - o1Array.length;
+            result = o1Array.length - o2Array.length;
         }
         return result;
     }
