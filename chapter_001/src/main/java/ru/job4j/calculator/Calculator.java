@@ -1,5 +1,9 @@
 package ru.job4j.calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+
 /**
  *  Calculator Класс для вычисления арифметических операций + - * /.
  *  @author Evgeny Shalashkov (shalashkove@gmail.com
@@ -30,6 +34,21 @@ public class Calculator {
     public static void subtrack(double first, double second) {
         double result =  first - second;
         System.out.println(first + " - " + second + " = " + result);
+    }
+
+    /**
+     * вычисление операции на основе лямбд
+     * @param start
+     * @param end
+     * @param func
+     * @return
+     */
+    public List<Double> diapason(int start, int end, Function<Double, Double> func) {
+        List<Double> result = new ArrayList<>();
+        for (int index = start; index != end; index++) {
+            result.add(func.apply(Double.valueOf(index)));
+        }
+        return result;
     }
 
     /**
