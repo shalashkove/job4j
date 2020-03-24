@@ -3,6 +3,7 @@ package ru.job4j.stream;
 import org.junit.Test;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -84,6 +85,28 @@ public class SchoolTest {
                 new Student(20),
                 new Student(30),
                 new Student(40)
+        );
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenStudentsListInMap() {
+        School school = new School();
+        List<Student> students = List.of(
+                new Student(10, "Ivanov"),
+                new Student(20, "Sidorov"),
+                new Student(40, "Petrov")
+        );
+        Map<String, Student> result = school.collect(students, x -> true).
+                stream().collect(Collectors.toMap(
+                e -> e.getFamily(),
+                e -> e
+        ));
+
+        Map<String, Student> expected = Map.of(
+                "Ivanov", new Student(10, "Ivanov"),
+                "Sidorov", new Student(20, "Sidorov"),
+                "Petrov", new Student(40, "Petrov")
         );
         assertThat(result, is(expected));
     }
