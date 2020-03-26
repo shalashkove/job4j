@@ -97,11 +97,7 @@ public class SchoolTest {
                 new Student(20, "Sidorov"),
                 new Student(40, "Petrov")
         );
-        Map<String, Student> result = school.collect(students, x -> true).
-                stream().collect(Collectors.toMap(
-                e -> e.getFamily(),
-                e -> e
-        ));
+        Map<String, Student> result = school.collect(students);
 
         Map<String, Student> expected = Map.of(
                 "Ivanov", new Student(10, "Ivanov"),
