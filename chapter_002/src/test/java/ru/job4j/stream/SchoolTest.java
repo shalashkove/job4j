@@ -106,4 +106,21 @@ public class SchoolTest {
         );
         assertThat(result, is(expected));
     }
+
+    @Test
+    public void when4InThen2out() {
+        School school = new School();
+        List<Student> list = List.of(
+                new Student("Иванов", 10),
+                new Student("Петров", 50),
+                new Student("Сидоров", 60),
+                new Student("Кузнецов", 90)
+        );
+        List<Student> result = school.levelOf(list, 50);
+        List<Student> expected = List.of(
+                new Student("Кузнецов", 90),
+                new Student("Сидоров", 60)
+        );
+        assertThat(result, is(expected));
+    }
 }
