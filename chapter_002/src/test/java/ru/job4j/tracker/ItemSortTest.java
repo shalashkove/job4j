@@ -9,41 +9,37 @@ public class ItemSortTest {
 
     @Test
     public void whenItemSortByGrowth() {
-        Item item1 = new Item("010", "One", "descOne");
-        Item item2 = new Item("005", "Two", "descFirstTwo");
-        Item item3 = new Item("005", "Two", "descAnotherTwo");
-        Item item4 = new Item("008", "Three", "descThree");
-        List<Item> result = new ArrayList<>();
-        result.add(item1);
-        result.add(item2);
-        result.add(item3);
-        result.add(item4);
+        List<Item> result = new ArrayList<>(List.of(
+                new Item("010", "One", "descOne"),
+                new Item("005", "Two", "descFirstTwo"),
+                new Item("005", "Two", "descAnotherTwo"),
+                new Item("008", "Three", "descThree")
+        ));
         Collections.sort(result, new SortByGrowth());
-        List<Item> expected = new ArrayList<>();
-        expected.add(item3);
-        expected.add(item2);
-        expected.add(item4);
-        expected.add(item1);
+        List<Item> expected = new ArrayList<>(List.of(
+                new Item("005", "Two", "descAnotherTwo"),
+                new Item("005", "Two", "descFirstTwo"),
+                new Item("008", "Three", "descThree"),
+                new Item("010", "One", "descOne")
+        ));
         Assert.assertEquals(expected, result);
     }
 
     @Test
     public void whenItemSortByDecrease() {
-        Item item1 = new Item("010", "One", "descOne");
-        Item item2 = new Item("005", "Two", "descFirstTwo");
-        Item item3 = new Item("005", "Two", "descAnotherTwo");
-        Item item4 = new Item("008", "Three", "descThree");
-        List<Item> result = new ArrayList<>();
-        result.add(item1);
-        result.add(item2);
-        result.add(item3);
-        result.add(item4);
+        List<Item> result = new ArrayList<>(List.of(
+                new Item("010", "One", "descOne"),
+                new Item("005", "Two", "descFirstTwo"),
+                new Item("005", "Two", "descAnotherTwo"),
+                new Item("008", "Three", "descThree")
+        ));
         Collections.sort(result, new SortByDecrease());
-        List<Item> expected = new ArrayList<>();
-        expected.add(item1);
-        expected.add(item4);
-        expected.add(item2);
-        expected.add(item3);
+        List<Item> expected = new ArrayList<>(List.of(
+                new Item("010", "One", "descOne"),
+                new Item("008", "Three", "descThree"),
+                new Item("005", "Two", "descFirstTwo"),
+                new Item("005", "Two", "descAnotherTwo")
+        ));
         Assert.assertEquals(expected, result);
     }
 }

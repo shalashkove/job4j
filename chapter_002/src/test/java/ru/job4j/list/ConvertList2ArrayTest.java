@@ -54,17 +54,13 @@ public class ConvertList2ArrayTest {
     @Test
     public void when6ElementsThen6() {
         ConvertList2Array list = new ConvertList2Array();
-        List<int[]> arr = new ArrayList<>();
-        arr.add(new int[]{1, 2});
-        arr.add(new int[]{3, 4, 5, 6});
-        List<Integer> result = list.convert(arr);
-        List<Integer> expect = new ArrayList<>();
-        expect.add(1);
-        expect.add(2);
-        expect.add(3);
-        expect.add(4);
-        expect.add(5);
-        expect.add(6);
+        List<Integer> result = list.convert(new ArrayList<>(List.of(
+                new int[]{1, 2},
+                new int[]{3, 4, 5, 6}
+        )));
+        List<Integer> expect = new ArrayList<>(List.of(
+                1, 2, 3, 4, 5, 6
+        ));
         assertThat(result, is(expect));
     }
 }
