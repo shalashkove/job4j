@@ -15,7 +15,7 @@ public class PriorityQueue {
      */
     public void put(Task task) {
         int i = 0;
-        for (Task var : tasks) {
+        for (var var : tasks) {
             if (task.getPriority() < var.getPriority()) {
                 break;
             }
